@@ -52,9 +52,9 @@
             bindings = <
                 &kp GRAV    &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                    &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp BKSP
                 &kp TAB     &kp Q       &kp W       &kp E       &kp R     &kp T                     &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSLH
-                &kp ESC     &kp A       &kp S       &kp D       &kp F     &kp G         &kp RARW    &kp H       &kp J       &kp K       &kp L       &kp SCLN    &kp RET
-                &kp LSFT    &kp Z       &kp X       &kp C       &kp V     &kp B         &kp LARW    &kp N       &kp M       &kp CMMA    &kp DOT     &kp FSLH    &kp RSFT 
-                            &kp LCTL    &kp LGUI    &kp LALT    &mo LOWER &kp SPC                   &kp SPC &mo RAISE   &kp RALT    &kp DARW    &kp UARW
+                &kp ESC     &kp A       &kp S       &kp D       &kp F     &kp G         &kp BKSP    &kp H       &kp J       &kp K       &kp L       &kp SCLN    &kp RET
+                &kp LSFT    &kp Z       &kp X       &kp C       &kp V     &kp B         &kp DEL     &kp N       &kp M       &kp CMMA    &kp DOT     &kp FSLH    &mt RSFT DQT
+                            &kp LGUI    &kp LALT    &kp LCTL    &mo LOWER &kp SPC                   &kp SPC     &mo RAISE   &kp RALT    &kp DARW    &kp UARW
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT>;
         };
@@ -76,7 +76,7 @@
                 &trans      &trans      &trans      &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans      &trans
                 &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
                 &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans 
-                            &trans      &kp LALT    &kp LGUI    &trans      &trans                  &trans      &trans      &trans      &trans      &trans
+                            &trans      &kp LALT    &kp LGUI    &trans      &trans                  &trans      &trans      &kp RGUI    &trans      &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT>;
         };
@@ -84,9 +84,9 @@
         lower_layer {
             bindings = <
                 &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6                  &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12  
-                &kp BKSP    &kp EQUAL   &kp NUM_7   &kp NUM_8   &kp NUM_9   &kp FSLH                &kp CARET   &kp LBKT    &kp RBKT    &kp AT      &kp EXCL    &kp BSLH
+                &kp BKSP    &kp EQUAL   &kp NUM_7   &kp NUM_8   &kp NUM_9   &kp PLUS                &kp CARET   &kp LBKT    &kp RBKT    &kp AT      &kp EXCL    &kp BSLH
                 &kp RET     &kp NUM_0   &kp NUM_4   &kp NUM_5   &kp NUM_6   &kp MINUS   &kp RARW    &kp UNDER   &kp LPAR    &kp RPAR    &kp HASH    &kp DQT     &trans
-                &kp DOLLAR  &kp STAR    &kp NUM_1   &kp NUM_2   &kp NUM_3   &kp PLUS    &kp LARW    &kp PIPE    &kp LBRC    &kp RBRC    &kp PRCNT   &kp AMPS    &trans
+                &kp DOLLAR  &kp STAR    &kp NUM_1   &kp NUM_2   &kp NUM_3   &kp FSLH    &kp LARW    &kp PIPE    &kp LBRC    &kp RBRC    &kp PRCNT   &kp AMPS    &trans
                             &trans      &trans      &trans      &trans      &trans                  &trans      &mo ADJUST  &trans      &trans      &trans
             >;
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -96,8 +96,8 @@
             bindings = <
                 &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6                  &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12  
                 &trans      &trans      &trans      &trans      &trans      &trans                  &trans      &kp HOME    &kp BKSP    &kp DEL     &kp END     &trans
-                &trans      &trans      &trans      &trans      &trans      &trans      &kp RARW    &kp LARW    &kp DARW    &kp UARW    &kp RARW    &kp APOS    &trans 
-                &trans      &trans      &trans      &trans      &trans      &trans      &kp LARW    &trans      &trans      &trans      &trans      &trans      &trans 
+                &trans      &trans      &trans      &trans      &trans      &trans      &kp UARW    &kp LARW    &kp DARW    &kp UARW    &kp RARW    &kp APOS    &trans 
+                &trans      &trans      &trans      &trans      &trans      &trans      &kp DARW    &trans      &trans      &trans      &trans      &trans      &trans 
                             &trans      &trans      &trans      &mo ADJUST  &trans                  &trans      &trans      &trans      &trans      &trans
             >;
             
@@ -105,11 +105,11 @@
         
         adjust_layer {
             bindings = <
-                &bootloader &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                &trans      &trans      &trans      &trans      &trans      &bt BT_CLR        
-                &trans      &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_EFR &rgb_ug RGB_BRI &rgb_ug RGB_BRD             &trans      &trans      &trans      &trans      &trans      &trans
-                &kp CAPS    &rgb_ug RGB_HUI &rgb_ug RGB_HUD &rgb_ug RGB_SAI &rgb_ug RGB_SAD &trans          &trans      &trans      &trans      &trans      &trans      &trans      &trans  
-                &trans      &trans          &trans          &trans          &trans          &trans          &trans      &tog MOD    &tog MAC    &trans      &trans      &trans      &trans  
-                            &trans          &trans          &trans          &trans          &trans                      &trans      &trans      &trans      &trans      &trans
+                &bootloader &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                    &trans      &trans      &trans      &trans      &trans      &bt BT_CLR        
+                &trans      &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_EFR &rgb_ug RGB_BRI &rgb_ug RGB_BRD                 &trans      &trans      &trans      &trans      &trans      &trans
+                &kp CAPS    &rgb_ug RGB_HUI &rgb_ug RGB_HUD &rgb_ug RGB_SAI &rgb_ug RGB_SAD &trans          &kp C_VOL_UP    &trans      &trans      &trans      &trans      &trans      &trans  
+                &trans      &trans          &trans          &trans          &trans          &trans          &kp C_VOL_DN    &tog MOD    &tog MAC    &trans      &trans      &trans      &trans  
+                            &trans          &trans          &trans          &trans          &trans                          &trans      &trans      &trans      &trans      &trans
             >;
         };
 
