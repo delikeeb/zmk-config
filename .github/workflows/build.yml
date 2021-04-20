@@ -65,7 +65,7 @@ jobs:
           path: waaffle_rev3.uf2
           
       - name: delete compilation residue
-        run: rm -rf build/zephyr/.
+        run: rm -rf build/zephyr/*
           
       - name: West Build (vanana_rev2)
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
