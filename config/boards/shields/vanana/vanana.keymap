@@ -83,7 +83,7 @@
 
         lower_layer {
             bindings = <
-                &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6                  &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12  
+                &kp DEL     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                  &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11  
                 &kp BKSP    &kp FSLH    &kp NUM_7   &kp NUM_8   &kp NUM_9   &kp PLUS                &kp CARET   &kp LBKT    &kp RBKT    &kp AT      &kp EXCL    &trans
                 &kp EQUAL   &kp NUM_0   &kp NUM_4   &kp NUM_5   &kp NUM_6   &kp MINUS   &kp RARW    &kp PIPE    &kp LPAR    &kp RPAR    &kp HASH    &kp DQT     &trans
                 &trans      &kp STAR    &kp NUM_1   &kp NUM_2   &kp NUM_3   &kp UNDER   &kp LARW    &kp DOLLAR  &kp LBRC    &kp RBRC    &kp AMPS    &kp PRCNT   &kp SQT
@@ -95,8 +95,8 @@
         raise_layer {
             bindings = <
                 &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6                  &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12  
-                &trans      &trans      &trans      &trans      &trans      &trans                  &trans      &kp HOME    &kp BKSP    &kp DEL     &kp END     &kp DOLLAR
-                &trans      &trans      &trans      &trans      &trans      &trans      &kp UARW    &kp LARW    &kp DARW    &kp UARW    &kp RARW    &kp APOS    &trans 
+                &trans      &trans      &trans      &trans      &trans      &trans                  &kp trans   &kp HOME    &kp UARW    &kp DEL     &kp END     &kp DOLLAR
+                &trans      &trans      &trans      &trans      &trans      &trans      &kp UARW    &kp BSPC    &kp LARW    &kp DARW    &kp RARW    &kp APOS    &trans 
                 &trans      &trans      &trans      &trans      &trans      &trans      &kp DARW    &trans      &trans      &trans      &trans      &trans      &kp DQT 
                             &trans      &trans      &trans      &mo ADJUST  &trans                  &trans      &trans      &trans      &trans      &trans
             >;
