@@ -1,3 +1,0 @@
-
-config SHIELD_WAAFFLE3
-	def_bool $(shields_list_contains,waaffle3)
