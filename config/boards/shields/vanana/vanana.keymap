@@ -85,8 +85,8 @@
             bindings = <
                 &kp DEL     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                  &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11  
                 &kp BKSP    &kp FSLH    &kp NUM_7   &kp NUM_8   &kp NUM_9   &kp PLUS                &kp CARET   &kp LBKT    &kp RBKT    &kp AT      &kp EXCL    &trans
-                &kp EQUAL   &kp NUM_0   &kp NUM_4   &kp NUM_5   &kp NUM_6   &kp MINUS   &kp UARW    &kp PIPE    &kp LPAR    &kp RPAR    &kp HASH    &kp DQT     &trans
-                &trans      &kp STAR    &kp NUM_1   &kp NUM_2   &kp NUM_3   &kp UNDER   &kp DARW    &kp DOLLAR  &kp LBRC    &kp RBRC    &kp AMPS    &kp PRCNT   &kp SQT
+                &kp EQUAL   &kp NUM_0   &kp NUM_4   &kp NUM_5   &kp NUM_6   &kp MINUS   &kp UARW    &kp PIPE    &kp LPAR    &kp RPAR    &kp HASH    &kp TILDE   &trans
+                &kp DOT     &kp STAR    &kp NUM_1   &kp NUM_2   &kp NUM_3   &kp UNDER   &kp DARW    &kp GRAV    &kp LBRC    &kp RBRC    &kp AMPS    &kp PRCNT   &kp SQT
                             &trans      &trans      &trans      &trans      &trans                  &trans      &mo ADJUST  &trans      &trans      &trans
             >;
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
