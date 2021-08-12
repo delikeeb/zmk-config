@@ -1,0 +1,129 @@
+/*
+ * Copyright (c) 2020 dELLIKEEb
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
+
+// custom keycode defs for easier access
+#define DEFAULT 0
+#define MAC     1
+#define LOWER   2
+#define RAISE   3
+#define MOD1    4
+#define MOD2    5
+#define ADJUST  6
+
+// / {
+//     behaviors {
+//         hm: homerow_mods {
+//             compatible = "zmk,behavior-hold-tap";
+//             label = "homerow mods";
+//             #binding-cells = <2>;
+//             tapping_term_ms = <225>;
+//             flavor = "tap-preferred";
+//             bindings = <&kp>, <&kp>;
+//         };
+//     };
+// };
+
+// BASE
+//     ---------------------------------------------------------------------------------------------------------
+//     |   `   |   1   |   2   |   3  |   4   |   5   |   6   |   7   |   8   |   9   |   0   |   -   |  PLUS  |
+//     ---------------------------------------------------------------------------------------------------------
+//     |   Tab     |   Q   |   W   |   E   |   R   |   T   |   Y   |   U   |   I   |   O   |   P   |    BSLH   |
+//    -----------------------------------------------------------------------------------------------------------------
+//   |    Esc      |   A   |   S   |   D   |   F   |   G   |   H   |   J   |   K   |   L   |   ;   |      Enter       |
+// ------------------------------------------------------------------------------------------------------------------------
+// |   MO  |  Shift   |   Z   |   X   |   C   |   V   |   B   |   N   |   M   |   ,   |   .   |   /   |  Shift   |  BSPC  |
+// ------------------------------------------------------------------------------------------------------------------------
+// |   MO  |   Ctrl   |   GUI   |    Alt   |  Lower |  Space |  Space | Raise |   Alt   |  DOWN |  UP   |  UP   |  UP   |
+// ----------------------------------------------------------------------------------------------------------------------
+// 
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                            &kp GRAV    &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS      &kp PLUS  
+                            &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T       &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSLH
+                            &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G       &kp H       &kp J       &kp K       &kp L       &kp SCLN    &kp RET
+                &kp Q       &kp LSFT    &kp Z       &kp X       &kp C       &kp V       &kp B       &kp N       &kp M       &kp CMMA    &kp DOT     &kp FSLH    &mt RSFT SQT  &kp BKSP
+                &kp A       &kp LGUI    &kp LALT    &kp LCTL    &mo LOWER   &kp SPC     &kp SPC     &mo RAISE   &kp RALT    &kp RARW    &kp LARW    &kp C_VOL_DN   &kp C_VOL_UP
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT>;
+        };
+
+        mac_layer {
+            bindings = <
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans  
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &kp LCTL    &kp LALT    &kp LGUI    &trans      &trans      &trans      &trans      &kp RGUI    &trans      &trans      &trans      &trans
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT>;
+        };
+
+        lower_layer {
+            bindings = <
+                            &kp DEL     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12  
+                            &kp BKSP    &kp FSLH    &kp NUM_7   &kp NUM_8   &kp NUM_9   &kp PLUS    &kp CARET   &kp LBKT    &kp RBKT    &kp AT      &kp EXCL    &trans      
+                            &kp RET     &kp NUM_0   &kp NUM_4   &kp NUM_5   &kp NUM_6   &kp MINUS   &kp UNDER   &kp LPAR    &kp RPAR    &kp HASH    &kp TILDE   &trans      &trans
+                &trans      &kp EQUAL   &kp STAR    &kp NUM_1   &kp NUM_2   &kp NUM_3   &kp DOT     &kp DOLLAR  &kp LBRC    &kp RBRC    &kp AMPS    &kp PRCNT   &kp SQT
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &mo ADJUST  &trans      &trans      &trans      &trans      &trans      
+            >;
+            sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        raise_layer {
+            bindings = <
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans  
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &kp HOME    &kp UARW    &kp DEL     &kp END     &kp DOLLAR
+                            &trans      &trans      &trans      &trans      &trans      &trans      &kp BSPC    &kp LARW    &kp DARW    &kp RARW    &kp APOS    &trans 
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &kp DQT     &trans 
+                &trans      &trans      &trans      &trans      &mo ADJUST  &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+            >;
+            
+        };
+
+        mod_layer1 {
+            bindings = <
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans  
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &kp SPC     &kp SPC     &trans      &trans      &trans      &trans      &trans      &trans
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT>;
+        };
+
+        
+        mod_layer2 {
+            bindings = <
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans  
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                            &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &kp SPC     &kp SPC     &trans      &trans      &trans      &trans      &trans      &trans
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT>;
+        };
+
+        adjust_layer {
+            bindings = <
+                            &bootloader &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4        &trans      &trans      &trans      &trans      &trans      &trans      &bt BT_CLR        
+                            &trans      &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_EFR &rgb_ug RGB_BRI &rgb_ug RGB_BRD     &trans      &trans      &trans      &trans      &trans      &trans
+                            &kp CAPS    &rgb_ug RGB_HUI &rgb_ug RGB_HUD &rgb_ug RGB_SAI &rgb_ug RGB_SAD &trans              &trans      &trans      &trans      &trans      &trans      &trans  
+                &trans      &trans      &trans          &trans          &trans          &trans          &trans              &trans      &tog MAC    &trans      &trans      &trans      &trans      &trans 
+                &trans      &trans      &trans          &trans          &trans          &kp SPC         &kp SPC             &trans      &trans      &trans      &trans      &trans      &trans
+            >;
+        };
+    };
+};
