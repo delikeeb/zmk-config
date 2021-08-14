@@ -54,10 +54,10 @@
                             &kp GRAV    &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS      &kp PLUS  
                             &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T       &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSLH
                             &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G       &kp H       &kp J       &kp K       &kp L       &kp SCLN    &kp RET
-                &kp Q       &kp LSFT    &kp Z       &kp X       &kp C       &kp V       &kp B       &kp N       &kp M       &kp CMMA    &kp DOT     &kp FSLH    &mt RSFT SQT  &kp BKSP
-                &kp A       &kp LGUI    &kp LALT    &kp LCTL    &mo LOWER   &kp SPC     &kp SPC     &mo RAISE   &kp RALT    &kp RARW    &kp LARW    &kp C_VOL_DN   &kp C_VOL_UP
+                &mo MOD1    &kp LSFT    &kp Z       &kp X       &kp C       &kp V       &kp B       &kp N       &kp M       &kp CMMA    &kp DOT     &kp FSLH    &mt RSFT SQT  &kp BKSP
+                &kp LCTL    &kp LCTL    &kp LGUI    &kp LALT    &mo LOWER   &kp SPC     &kp SPC     &mo RAISE   &kp RALT    &kp LARW    &kp RARW    &kp C_VOL_DN   &kp C_VOL_UP
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         mac_layer {
@@ -68,18 +68,18 @@
                 &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
                 &trans      &kp LCTL    &kp LALT    &kp LGUI    &trans      &trans      &trans      &trans      &kp RGUI    &trans      &trans      &trans      &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         lower_layer {
             bindings = <
                             &kp DEL     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12  
                             &kp BKSP    &kp FSLH    &kp NUM_7   &kp NUM_8   &kp NUM_9   &kp PLUS    &kp CARET   &kp LBKT    &kp RBKT    &kp AT      &kp EXCL    &trans      
-                            &kp RET     &kp NUM_0   &kp NUM_4   &kp NUM_5   &kp NUM_6   &kp MINUS   &kp UNDER   &kp LPAR    &kp RPAR    &kp HASH    &kp TILDE   &trans      &trans
-                &trans      &kp EQUAL   &kp STAR    &kp NUM_1   &kp NUM_2   &kp NUM_3   &kp DOT     &kp DOLLAR  &kp LBRC    &kp RBRC    &kp AMPS    &kp PRCNT   &kp SQT
+                            &kp RET     &kp NUM_0   &kp NUM_4   &kp NUM_5   &kp NUM_6   &kp MINUS   &kp UNDER   &kp LPAR    &kp RPAR    &kp HASH    &kp TILDE   &trans      
+                &trans      &kp EQUAL   &kp STAR    &kp NUM_1   &kp NUM_2   &kp NUM_3   &kp DOT     &kp DOLLAR  &kp LBRC    &kp RBRC    &kp AMPS    &kp PRCNT   &kp SQT     &trans
                 &trans      &trans      &trans      &trans      &trans      &trans      &trans      &mo ADJUST  &trans      &trans      &trans      &trans      &trans      
             >;
-            sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp LEFT RIGHT>;
         };
 
         raise_layer {
@@ -90,7 +90,7 @@
                 &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &kp DQT     &trans 
                 &trans      &trans      &trans      &trans      &mo ADJUST  &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
             >;
-            
+            sensor-bindings = <&inc_dec_kp LEFT RIGHT>;
         };
 
         mod_layer1 {
@@ -101,7 +101,7 @@
                 &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
                 &trans      &trans      &trans      &trans      &trans      &kp SPC     &kp SPC     &trans      &trans      &trans      &trans      &trans      &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         
@@ -113,7 +113,7 @@
                 &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
                 &trans      &trans      &trans      &trans      &trans      &kp SPC     &kp SPC     &trans      &trans      &trans      &trans      &trans      &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         adjust_layer {
@@ -122,7 +122,7 @@
                             &trans      &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_EFR &rgb_ug RGB_BRI &rgb_ug RGB_BRD     &trans      &trans      &trans      &trans      &trans      &trans
                             &kp CAPS    &rgb_ug RGB_HUI &rgb_ug RGB_HUD &rgb_ug RGB_SAI &rgb_ug RGB_SAD &trans              &trans      &trans      &trans      &trans      &trans      &trans  
                 &trans      &trans      &trans          &trans          &trans          &trans          &trans              &trans      &tog MAC    &trans      &trans      &trans      &trans      &trans 
-                &trans      &trans      &trans          &trans          &trans          &kp SPC         &kp SPC             &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans          &trans          &trans          &kp SPC         &kp SPC             &trans      &trans      &trans      &trans      &trans      &reset
             >;
         };
     };
