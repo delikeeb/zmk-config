@@ -35,58 +35,22 @@ jobs:
       - name: West Zephyr export
         run: west zephyr-export
         
-      # Vanana rev2 with nice_nano v1
-      - name: West Build (waaffle_rev3)
-        run: west build -s zmk/app -b nice_nano -- -DSHIELD=waaffle_rev3 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: waaffle_rev3 DTS File
+      # Lily58 Pro nice_nano
+      - name: West Build (lily58)
+        run: west build -s zmk/app -b nice_nano -- -DSHIELD=lily58 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: lily58 DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/nice_nano.dts.pre.tmp
-      - name: waaffle_rev3 Kconfig file
+      - name: lily58 Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 waaffle-rev3.uf2
-      - name: Archive (waaffle_rev3)
+        run: cp build/zephyr/zmk.uf2 lily58.uf2
+      - name: Archive (lily58)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: waaffle-rev3.uf2
+          path: lily58.uf2
           
       # Clear build directory
       - name: delete compilation residue
         run:  rm -rf build/zephyr/*
-
-      # Vanana rev2 with nice_nano v1
-      - name: West Build (vanana_rev2 with nano1)
-        run: west build -s zmk/app -p -b nice_nano -- -DSHIELD=vanana_rev2 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: vanana_rev2 DTS File
-        if: ${{ always() }}
-        run: cat -n build/zephyr/nice_nano.dts.pre.tmp
-      - name: vanana_rev2 Kconfig file
-        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 vanana-rev2-nano_v1.uf2
-      - name: Archive (vanana_rev2)
-        uses: actions/upload-artifact@v2
-        with:
-          name: firmware
-          path: vanana-rev2-nano_v1.uf2
-
-      # Clear build directory
-      - name: delete compilation residue
-        run:  rm -rf build/zephyr/*
-
-      # Vanana rev2 with nice_nano v2
-      - name: West Build (vanana_rev2 with nano2)
-        run: west build -s zmk/app -p -b nice_nano_v2 -- -DSHIELD=vanana_rev2 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: vanana_rev2 DTS File
-        if: ${{ always() }}
-        run: cat -n build/zephyr/nice_nano_v2.dts.pre.tmp
-      - name: vanana_rev2 Kconfig file
-        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 vanana-rev2-nano_v2.uf2
-      - name: Archive (vanana_rev2)
-        uses: actions/upload-artifact@v2
-        with:
-          name: firmware
-          path: vanana-rev2-nano_v2.uf2
