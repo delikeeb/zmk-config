@@ -34,7 +34,27 @@ jobs:
         run: west update
       - name: West Zephyr export
         run: west zephyr-export
-
+        
+      # Lily58 Pro nice_nano
+      - name: West Build (lily58)
+        run: west build -s zmk/app -b nice_nano -- -DSHIELD=lily58 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: lily58 DTS File
+        if: ${{ always() }}
+        run: cat -n build/zephyr/nice_nano.dts.pre.tmp
+      - name: lily58 Kconfig file
+        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
+      - name: Rename zmk.uf2
+        run: cp build/zephyr/zmk.uf2 lily58.uf2
+      - name: Archive (lily58)
+        uses: actions/upload-artifact@v2
+        with:
+          name: firmware
+          path: lily58.uf2
+          
+      # Clear build directory
+      - name: delete compilation residue
+        run:  rm -rf build/zephyr/*
+        
       # Vanana rev2 with nice_nano v1
       - name: West Build (waaffle_rev3)
         run: west build -s zmk/app -b nice_nano -- -DSHIELD=waaffle_rev3 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
