@@ -1,13 +1,13 @@
 on: [push, pull_request, workflow_dispatch]
 
-name: Build
+name: Build lily58_left
 
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
       image: zmkfirmware/zmk-build-arm:2.5
-    name: Lily58 Workflow
+    name: Lily58_left Workflow
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -55,18 +55,4 @@ jobs:
       - name: delete compilation residue
         run:  rm -rf build/zephyr/*
 
-      # Lily58 Pro RIGHT nice_nano
-      - name: West Build (lily58_right)
-        run: west build -s zmk/app -b nice_nano -- -DSHIELD=lily58_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: lily58 DTS File
-        if: ${{ always() }}
-        run: cat -n build/zephyr/nice_nano.dts.pre.tmp
-      - name: lily58 Kconfig file
-        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 lily58_Right.uf2
-      - name: Archive (lily58_right)
-        uses: actions/upload-artifact@v2
-        with:
-          name: firmware
-          path: lily58_Right.uf2
+
