@@ -20,18 +20,12 @@
         chain-length = <8>; /* number of LEDs */
         spi-one-frame = <0x70>;
         spi-zero-frame = <0x40>;
-<<<<<<< HEAD
-        color-mapping = <LED_COLOR_ID_GREEN
-                   	LED_COLOR_ID_RED
-                   	LED_COLOR_ID_BLUE>;
-    };
-=======
         color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
-  };
->>>>>>> 13cfa64 (ownership fixed)
+    };
 };
+
 / {
-	chosen {
-		zmk,underglow = &led_strip;
+    chosen {
+      zmk,underglow = &led_strip;
 	};
 };
